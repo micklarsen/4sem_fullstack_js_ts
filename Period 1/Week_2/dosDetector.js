@@ -20,4 +20,4 @@ class DOS_Detector extends EventEmitter {
 }
 
 // Export the class using nodes CommonJS module system (require/exports)
-module.exports.DosDetectorOBJ = DOS_Detector;
+module.exports.DosDetector = DOS_Detector;

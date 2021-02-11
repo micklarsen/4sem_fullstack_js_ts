@@ -4,7 +4,7 @@ let clientInfo = {
     platform:os.platform(),
     freeMem : os.freemem(),
     totalMem : os.totalmem(),
-    eol : os.EOL,
+    eol : os.EOL
 };
 
 module.exports = clientInfo;
