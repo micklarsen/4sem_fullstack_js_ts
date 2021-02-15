@@ -21,5 +21,10 @@ const server = http.createServer((req, res) => {
         res.end();
     }
 });
+
+server.on('connection', (sock) =>{
+    console.log('Client IP: ' + sock.remoteAddress);
+})
+
 server.listen(_portNo);
 console.log('Listening on port ' + _portNo);
