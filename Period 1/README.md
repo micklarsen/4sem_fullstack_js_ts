@@ -1,4 +1,8 @@
-# Learning goals: Period 1
+# Exercises:
+
+For exercises, please check the folders for each week, above.  
+  
+# Learning goals: Period 1 (To be updated continuously)
 
 ## Explain and reflect
 

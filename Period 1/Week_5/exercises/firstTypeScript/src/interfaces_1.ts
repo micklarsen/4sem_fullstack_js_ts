@@ -5,7 +5,7 @@ interface IBook {
     title: string;
     readonly author: string; //e) Change the interface to make author readonly - Verify the new behaviour.
     published?: Date; //d) Change the interface to make published and pages become optional - Verify the new behaviour.
-    pages: number;
+    pages?: number;
 }
 
 let aBook: IBook = {
