@@ -74,7 +74,7 @@ moreWork(); // will run before console.log
 
 ## The JavaScript Engine and JavaScript Runtime Environment
 
-**The engine**
+**The engine**  
 The engine is responsible for _interpreting_ the code and translate it to machine code and then executing the code.  
 (For Java we would have to compile the code and would be able to recieve compilation errors).
 
