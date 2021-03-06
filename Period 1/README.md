@@ -88,8 +88,8 @@ In web development the engine is seldom used directly because the engine works w
 
 Notable JavaScript Runtime Environments
 
-- The browser environment (For instance powered by V8)
-- NodeJS powered by V8, not providing the DOM tree, AJAX, etc. but allows for installing packages to support these.
+- The browser environment (For instance powered by V8 in Chrome)
+- NodeJS powered by V8, but not providing the DOM tree, AJAX, etc. Allows for installing packages to support these.
 
 ## Babel & WebPack
 
@@ -167,7 +167,7 @@ var definitionNotHoisted = function () {
 };
 ```
 
-A good rule of thumb is to declared variables at the top!
+A good rule of thumb is to declare your variables at the top!
 
 ## this​ in JavaScript and how it differs from what we know from Java/.net.
 The definition of `this` in JavaScript from [W3 Schools](https://www.w3schools.com/js/js_this.asp)
@@ -193,7 +193,7 @@ var person = {
 
 In Java `this` is a reference to the object of the current class within an instance method or constructor.  
 
-The main difference between the two is that `this` changes in JavaScript depending on context.
+The main difference between the two is that `this` changes (More) in JavaScript depending on context.
 
 ## Function Closures and the JavaScript Module Pattern
 
