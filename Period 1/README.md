@@ -115,7 +115,6 @@ Webpack can be configured using a `.webpack.config.js` file - eg:
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {
-  CealnWebpackPlugin,
   CleanWebpackPlugin,
 } = require("clean-webpack-plugin");
 
