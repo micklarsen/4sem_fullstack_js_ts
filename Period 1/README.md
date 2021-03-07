@@ -1,3 +1,6 @@
+# Learning goals: Period 1
+Updated continuously
+
 # Exercises:
 
 For exercises, please check the folders above or use the list here:
@@ -7,10 +10,6 @@ For exercises, please check the folders above or use the list here:
 - [Week 3](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%201/Week_3)
 - [Week 4](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%201/Week_4/exercises)
 - [Week 5](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%201/Week_5)
-
-
-# Learning goals: Period 1
-Updated continuously
 
 <br> 
 
