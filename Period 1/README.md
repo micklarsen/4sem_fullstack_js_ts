@@ -9,7 +9,8 @@ For exercises, please check the folders above or use the list here:
 - [Week 5](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%201/Week_5)
 
 
-# Learning goals: Period 1 (Updated continuously)
+# Learning goals: Period 1
+Updated continuously
 
 <br> 
 
