@@ -177,7 +177,7 @@ module.exports = {
 **Variables**  
 Hoisting is JavaScript's default behavior of moving declarations to the top.
 Some variable types are hoisted to the top of the scope when the code is executed, but they behave differently.  
-`let` and `const` are hoisted to the top but not initialized which will return errors.
+`let` and `const` are hoisted to the top but not initialized! Running without initialization will return errors.
 
 **Functions**  
 Function hoisting occurs for function declarations - not function expressions. For example:
@@ -197,8 +197,10 @@ var definitionNotHoisted = function () {
   console.log("Definition not hoisted!");
 };
 ```
+  
+<br>
 
-A good rule of thumb is to declare your variables at the top!
+>A good rule of thumb is to declare your variables at the top!
 
 <br> 
 
@@ -227,7 +229,9 @@ var person = {
 };
 ```
 
-In Java `this` is a reference to the object of the current class within an instance method or constructor.
+>In Java `this` is a reference to the object of the current class within an instance method or constructor.
+
+>In JavaScript `this` is a reference to the owner object.
 
 The main difference between the two is that `this` changes (More) in JavaScript depending on context.
 
@@ -245,7 +249,7 @@ function myFunction() {
   var a = 4;
   return a * a;
 }
-```javascript
+
 var a = 4;
 function myFunction() {
   return a * a;
@@ -313,7 +317,7 @@ myCalculator(5, 5, myDisplayer);
 Callback functions
 
 **Map**  
-Using built in Math library.
+Using the built in Math library.
 
 ```javascript
 var numbers = [4, 9, 16, 25];
@@ -364,7 +368,7 @@ let myArr = [1, 20, 21, 17, 18, 29, 19, 26, 84, 56];
 console.log('"Real" filter:   ' + realFilter);
 ```
 
-**Reduce**
+**Reduce**  
 Homemade version
 
 ```javascript
@@ -404,9 +408,10 @@ console.log(array1.reduce(reducer, 5));
 
 <br> 
 
-## Provide examples of user-defined reusable modules implemented in Node.js (learnynode - 6)
+## User-defined reusable modules implemented in Node.js (learnynode - 6)
 
-This small project requires `mymodule.js` in order to print a list of files with a specific extension in a give folder.
+This small project requires `mymodule.js` in order to print a list of files with a specific extension in a give folder.  
+The interesting part here is `module.exports`
 
 ```javascript
 // ### make-it-modular.js ###
@@ -445,7 +450,7 @@ module.exports = function (dirPath, extension, callback) {
 
 <br> 
 
-## Provide examples and explain the es2015 features: ​let, arrow functions, this, rest parameters, destructuring objects and arrays,​ ​maps/sets​ etc.
+## ES2015 features: ​let, arrow functions, this, rest parameters, destructuring objects and arrays,​ ​maps/sets​.
 
 **Let**  
 `let` declares a block scoped variable:
@@ -550,10 +555,10 @@ console.log(contacts.size); // 1
 
 <br> 
 
-## Explain and demonstrate, how to implement event-based code, how to emit events and how to listen for such events
+## Event-based code: How to emit and listen for events
 
 Events can be emitted but requires something to listen for them.  
-A "Make-believe" DDOS detector was written [during week 2](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%201/Week_2) an can be found below:
+A "Make-believe" DDOS detector was written [during week 2](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%201/Week_2) and can be found below:
 
 _Core functionality_
 
@@ -611,39 +616,9 @@ setTimeout(() => {
 // Plausible DDOS attack detected { url: 'url3', timeBetweenCalls: 1003 }
 ```
 
-<br> 
-
-## Callbacks, Promises and async/await
-Why is it smart?
-
-### how to avoid the callback hell (“Pyramid of Doom")
-asd
-
-### How to execute asynchronous (promise-based) code in ​serial​ or parallel
-asd
-
-### How to implement ​your own​ promise-solutions.
-asd
-
-### Example(s) that demonstrate error handling with promises
-asd
-
-### JavaScripts ​async/await​
-how it relates to promises and reasons to use it compared to the plain promise API.  
-Provide examples to demonstrate
-
-#### Why this often is the preferred way of handling promises
-asd
-
-#### Error handling with async/await
-asd
-
-#### Serial or parallel execution with async/await.
-asd
-
 <br>
 
-## Provide an example of ES6 inheritance and reflect over the differences between Inheritance in Java and in ES6.
+## ES6 inheritance and differences between Inheritance in Java and in ES6.
 Inheritance in ES6 is getting quite close to Java (True OOP) and allows for extending and super().  
 Simple class with inheritance example:
 
@@ -678,24 +653,52 @@ console.log(car.getType()); // car
 
 <br> 
 
+## Callbacks, Promises and async/await
+Why is it smart?
+
+### how to avoid the callback hell (“Pyramid of Doom")
+tbd
+
+### How to execute asynchronous (promise-based) code in ​serial​ or parallel
+tbd
+
+### How to implement ​your own​ promise-solutions.
+tbd
+
+### Example(s) that demonstrate error handling with promises
+tbd
+
+### JavaScripts ​async/await​
+how it relates to promises and reasons to use it compared to the plain promise API.  
+Provide examples to demonstrate
+
+#### Why this often is the preferred way of handling promises
+tbd
+
+#### Error handling with async/await
+tbd
+
+#### Serial or parallel execution with async/await.
+tbd
+
+<br> 
+
 ## ES6,7,8,ES-next and TypeScript
 
 ### Provide examples with es-next, running in a browser, using Babel and Webpack
-asd
+tbd
 
 ### Explain the two strategies for improving JavaScript: Babel and ES6 + ES-Next, versus Typescript.
-asd
+tbd
 
 ### What does it require to use these technologies: In our backend with Node and in (many different) Browsers
-asd
+tbd
 
 ### Provide​ examples​ to demonstrate the benefits of using TypeScript, including, types, interfaces, classes and generics
-asd
+tbd
 
 ### Explain how we can get typescript code completion for external imports.
-asd
+tbd
 
 ### Explain the ECMAScript Proposal Process for how new features are added to the language (the TC39 Process)
-asd
-
-
+tbd
