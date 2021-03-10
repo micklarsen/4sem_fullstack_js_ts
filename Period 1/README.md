@@ -6,7 +6,7 @@ Updated continuously
 
 - [Alexander Pihl](https://github.com/AlexanderPihl)
 - [Jean-Poul Leth-Møller](https://github.com/Jean-Poul)
-- [Mick Larsen](https://github.com/MivleDK/)
+- [Mick Larsen](https://github.com/micklarsen/)
 - [Morten Rasmussen](https://github.com/Amazingh0rse)
 - [Per Kringelbach](https://github.com/cph-pk)
 
