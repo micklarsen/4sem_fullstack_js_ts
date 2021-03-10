@@ -1,6 +1,16 @@
 # Learning goals: Period 1
 Updated continuously
 
+**Gruppe Medlemmer**
+
+
+- [Alexander Pihl](https://github.com/AlexanderPihl)
+- [Jean-Poul Leth-Møller](https://github.com/Jean-Poul)
+- [Mick Larsen](https://github.com/MivleDK/)
+- [Morten Rasmussen](https://github.com/Amazingh0rse)
+- [Per Kringelbach](https://github.com/cph-pk)
+
+
 # Exercises:
 
 For exercises, please check the folders above or use the list here:
