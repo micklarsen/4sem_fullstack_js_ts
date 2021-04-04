@@ -1,0 +1,1 @@
+Startcode to be found [Here](https://github.com/micklarsen/4sem_typescript_startcode)
