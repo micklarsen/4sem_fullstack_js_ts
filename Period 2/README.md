@@ -331,8 +331,8 @@ You can create indexes to help MongoDB (But MongoDB will create its own indexes 
 
 <br>
 
-### MongoDB's "special" indexes TTL, 2dsphere and the Unique Index.
-TBD
+### A full JavaScript backend including relevant test cases to test the REST-API (not on the production database)
+In the [fullstack startcode!](https://github.com/micklarsen/4sem_fullstack_js_ts)
 
 <br>
 
@@ -345,15 +345,15 @@ All requests to the "Friend" API goes through the route first, then the facade.
 
 <br>
 
-### A full JavaScript backend including relevant test cases to test the REST-API (not on the production database)
-In the [fullstack startcode!](https://github.com/micklarsen/4sem_fullstack_js_ts)
+### MongoDB's "special" indexes TTL, 2dsphere and the Unique Index.
+TBD
 
 <br>
 
 ### Decisions regarding normalization vs denormalization
 TBD
 
-
+<br>
 
 ### Explain, preferably using an example, how you have deployed your node/Express applications, and which of the Express Production best practices you have followed.
 TBD
