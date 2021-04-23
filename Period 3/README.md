@@ -233,8 +233,11 @@ return (
 
 <br>
 
-### Provide a number of examples demonstrating; creating, updating and deleting with Mutations. You should provide examples both running in a Sandbox/playground and examples executed in an Apollo Client.
-asd
+### Provide a number of examples demonstrating; creating, updating and deleting with Mutations.
+Demonstrated in apolloclient week3. 
+- [Create](https://github.com/micklarsen/4sem_fullstack_js_ts/blob/main/Period%203/Week%202/apollov2/src/components/AddFriend.tsx)
+- [Update](https://github.com/micklarsen/4sem_fullstack_js_ts/blob/main/Period%203/Week%202/apollov2/src/components/UpdateFriend.tsx)
+- [Delete](https://github.com/micklarsen/4sem_fullstack_js_ts/blob/main/Period%203/Week%202/apollov2/src/components/DeleteFriend.tsx)
 
 
 <br>
@@ -312,33 +315,72 @@ const resolvers  = {
 <br>
 
 ### Explain the benefits we get from using a library like Apollo-client, compared to using the plain fetch-API
-
-asd
+The Apollo client handles the request cycle from start to finish including loading and error states and even caching! We don't need any extra middleware to do this which saves a lot of coding. 
 
 <br>
 
 ### In an Apollo-based React Component, demonstrate how to perform GraphQL Queries, including:
 
 **Explain the purpose of ApolloClient and the ApolloProvider component**  
-asd
+Apollo Client is a comprehensive state management library for JavaScript that enables us to manage both local and remote data with GraphQL.  
+We can use it to fetch, cache, and modify application data, all while automatically updating our UI.
 
 **Explain the purpose of the gql-function (imported from graphql-tag)**  
-asd
+The gql template literal tag can be used to concisely write a GraphQL query that is parsed into a standard GraphQL AST (Abstract syntax tree). It is the recommended method for passing queries to Apollo Client. While it is primarily built for Apollo Client, it generates a generic GraphQL AST which can be used by any GraphQL client.
 
 **Explain Custom Hooks used by your Client Code**
-asd
+A custom hook example: 
+
+```javascript
+  const { loading, error, data, startPolling } = useQuery<FriendData>(
+    ALL_FRIENDS,
+    { fetchPolicy: "cache-first" }
+  )
+```
+This hook uses a fetch-policy (Described in the next question)
 
 **Explain and demonstrate the caching features built into Apollo Client**  
-asd
+When using Apollo we initialize the cache in our app.tsx as shown earlier: 
+```javascript
+  client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+  })
+  client.resetStore();
+}
+makeClient()
+```
+
+In the last example we use a "cache-first" fetch policy, but there are several to choose from.  
+
+- cache-first: First executes the query against the cache - If all requested data is preset in the cache this is returned. If not the GraphQL server is queried.
+- cache-and-network: Executes the query against the cache and graphql server. This keeps the cached updated continously. 
+- network only: Executes the full query against the graphql server without checking the cache (Though the result is stored in the cache).
+
+There are more types to be found in apollographql docs.
+
 
 ### In an Apollo-based React Component, demonstrate how to perform GraphQL Mutations?
 
-asd
+Demonstrated in [Updatefriend](https://github.com/micklarsen/4sem_fullstack_js_ts/blob/main/Period%203/Week%202/apollov2/src/components/UpdateFriend.tsx)
 
 <br>
 
 ## Demonstrate and highlight important parts of a “complete” GraphQL-app using Express and MongoDB on the server-side, and Apollo-Client on the client.
 
-asd
+Complete example with the [fullstack startcode](https://github.com/micklarsen/FullstackTS_Startcode) as the server, and the [Apollo server](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%203/Week%202/apollov2) as a React frontend. 
+
+**BACKEND**
+The most important parts of the backend is: 
+- To import and integrate express with relevant middleware such as auth, debugging, etc. 
+-Setup and configure a server to run everything. In the startcode the server is started in www.ts.
+- Setup a facade for communicating with a database such as MongoDB
+- Setup routes as API endpoints 
+- Setup GraphQL schemas and resolvers to simplify and improve the API
+
+**FRONTEND**
+- Setup app.tsx that should contain routes and the apolloprovider & client to handle setup caching.
+- Setup html/css for routes and build forms for interacting with an API using components.
+- Integrate authentification by using localStorage.
 
 <br>
