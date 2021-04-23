@@ -8,10 +8,14 @@
 
 ## Notes for each flow:
 
+Fullstack JS/TS Startcode [link](https://github.com/micklarsen/4sem_typescript_startcode)
+
 ### [Flow 1 (link)](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%201)
 Basic JavaScript, Promises and async-await, Babel, Webpack Introduction to Typescript.
 
 ### [Flow 2 (link)](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%202)
 Node & Express for API, NoSQL, MongoDB  
-*Node & Express startcode [link](https://github.com/micklarsen/4sem_typescript_startcode)*
+
+### [Flow 3 (link)](https://github.com/micklarsen/4sem_fullstack_js_ts/tree/main/Period%203)
+GraphQL & Apollo
 
