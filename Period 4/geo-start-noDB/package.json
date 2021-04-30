@@ -4,10 +4,12 @@
   "main": "app.js",
   "scripts": {
     "start": "tsc && node ./build/app.js",
+    "start:debug": "tsc && node --inspect ./build/app.js",
     "build": "tsc",
-    "dev": "nodemon src/app.ts",
+    "dev-DOES_NOT_WORK": "nodemon src/app.ts",
+    "dev": "nodemon --exec ts-node --files src/app.ts",
     "geojson-utils": "nodemon --exec ts-node --files src/geoUtilsTester.ts",
-    "dev:debug": "nodemon --inspect ./src/app.ts"
+    "dev:debug_DOES_NOT_WORK": "nodemon --inspect ./src/app.ts"
   },
   "nodemonConfig": {
     "ignore": [
