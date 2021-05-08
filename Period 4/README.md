@@ -1,4 +1,4 @@
-,# Learning goals: Period 4
+# Learning goals: Period 4
 
 Updated continuously
 
@@ -177,8 +177,11 @@ since there were problems with using geojson without that.
 
 
 ### Explain and demonstrate ways to create Geo-JSON test data
-To make Geo-JSON test data I first have to go to geojson.io, where a polygon has been made with to discribe the game area and points
-have been made to simulate players. The data is then striped from ```json "type": "Feature", "properties": {}, "geometry": {```. The points
+To make Geo-JSON test data we can go to geojson.io and create a polygon to describe a game area with points to simulate players. The data is then striped from 
+```json 
+"type": "Feature", "properties": {}, "geometry": {
+```
+The points
 are seperated from the polygon so they can be stored in there own const. Players are made as follows with a unique property name to be able to identify them: ```json const players= [
   {
     "type": "Feature",
@@ -214,7 +217,25 @@ A rule of thumb, for Denmark, could be, that the latitude always will be about 5
 <br>
 
 ### Explain and demonstrate a GraphQL API that implements geo-features, using a relevant geo-library and plain JavaScript
-asd
+For the backend to handle Geo features we can uise a library such as `geojson-utils`.  
+We can then generate geo data using [geojson.io](https://geojson.io) by generating polygons and points both inside and outside of the polygon area.  
+
+We can use this data and the geo library to perform math operations to check whether points are inside or outside the polygon. We can also calculate the distance between points using this library.
+
+The json containing the polygon and points can be saved in a file `gameData.js` and imported as a test.  
+To check if a player is within the defined gamearea we can use the geojson (Imported like `import gju from "geojson-utils"`) library like this: 
+
+```javascript
+isUserInArea: (_: any, { longitude, latitude }: { latitude: number, longitude: number }) => {
+  const point = { type: "Point", coordinates: [longitude, latitude] }
+  const isInside = gju.pointInPolygon(point, gameArea)
+  let result: any = {};
+  result.status = isInside;
+  result.msg = isInside ? "Point was inside the GameArea" : "Point was NOT inside the GameArea";
+  return result
+}
+```
+
 
 <br>
 
@@ -271,6 +292,88 @@ distanceToUser: async (_: any, { longitude, latitude, userName }: { longitude: n
 
 
 ### Explain and demonstrate how you have tested the geo-related features in you start code
-asd
+To perform tests we need data to work with! For this we use an in-memory mongoDB feature with test data.  
+We can then use mocha as our test framework and chai for assertions.  
+
+We prepare our tests by setting up data like so: 
+
+```javascript
+    before(async function () {
+        const client = await InMemoryDbConnector.connect();
+        const db = client.db();
+        positionCollection = db.collection("positions");
+        friendsCollection = db.collection("friends")
+        positionFacade = new PositionFacade(db)
+        await positionCollection.createIndex({ "lastUpdated": 1 }, { expireAfterSeconds: 60 })
+        await positionCollection.createIndex({ location: "2dsphere" })
+    })
+
+    beforeEach(async () => {
+        const hashedPW = await hash("secret", 8);
+        await friendsCollection.deleteMany({});
+
+        const f1 = { firstName: "Peter", lastName: "Pan", email: "pp@b.dk", password: hashedPW, role: "user" }
+        const f2 = { firstName: "Donald", lastName: "Duck", email: "dd@b.dk", password: hashedPW, role: "user" }
+        const f3 = { firstName: "Peter", lastName: "Admin", email: "peter@admin.dk", password: hashedPW, role: "admin" }
+
+        const status = await friendsCollection.insertMany([f1, f2, f3])
+        await positionCollection.deleteMany({});
+
+        const positions = [
+            positionCreator(12.48, 55.77, f1.email, f1.firstName + " " + f1.lastName, true),
+            positionCreator(12.48, getLatitudeInside(55.77, DIST_TO_SEARCH), f2.email, f2.firstName + " " + f2.lastName, true),
+            positionCreator(12.58, getLatitudeOutside(55.77, DIST_TO_SEARCH), f3.email, f3.firstName + " " + f3.lastName, true),
+        ]
+        await positionCollection.insertMany(positions)
+
+    })
+```
+
+In our `positionFacade.ts` we have a function called `addOrUpdatePosition` that looks like this: 
+
+```javascript
+    async addOrUpdatePosition(email: string, longitude: number, latitude: number): Promise<IPosition> {
+
+        const friend = await this.friendFacade.getFriendFromEmail(email)
+        const fullName = friend.firstName + " " + friend.lastName
+
+        const query = { email }
+        const pos: IPosition = { lastUpdated: new Date(), email, name: fullName, location: { type: "Point", coordinates: [longitude, latitude] } }
+        const update = { $set: { ...pos } }
+
+        const options = { upsert: true, returnOriginal: false } //Upsert means, make if doesn't exist
+        const result = await this.positionCollection.findOneAndUpdate(query, update, options)
+        return result.value;
+        //throw new Error("Not Implemented")
+    }
+```
+
+We can test this method for both "Success" and error handling.  
+First we will test, whether the function works with a valid (Existing) user:
+
+```javascript
+    describe("Verify the addOrUpdatePosition method", () => {
+        it("It should update pp@b.dk's position document", async () => {
+            const result = await positionFacade.addOrUpdatePosition("pp@b.dk", 2, 3)
+            expect(result.name).to.be.equal("Peter Pan")
+            expect(result.location.coordinates[0]).to.be.equal(2)
+            expect(result.location.coordinates[1]).to.be.equal(3)
+        })
+    })
+```
+
+We can then test, if the method handles non-existing users like so: 
+
+```javascript
+    describe("Verify the addOrUpdatePosition method", () => {
+        it("It should not update XXXX@b.dk's position document", async () => {
+            await expect(positionFacade.addOrUpdatePosition("XXXX@b.dk", 2, 3)).to.be.rejectedWith(ApiError)
+        })
+    })
+```
+
+Our terminal output looks like this, if all went well   
+
+![image](https://i.imgur.com/UbiShr2.png)
 
 <br>
