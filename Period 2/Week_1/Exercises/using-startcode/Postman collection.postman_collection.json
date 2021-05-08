@@ -1,319 +1,559 @@
 {
 	"info": {
-		"_postman_id": "ff60d43a-9c7e-4f12-b85f-3f8cc3c4a377",
-		"name": "fullstackJSTS-F2W1",
+		"_postman_id": "26071cd5-5d86-469b-9245-ae56411400ed",
+		"name": "4 Semester security backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "All",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "secret",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "peter@admin.dk",
-							"type": "string"
+			"name": "Users",
+			"item": [
+				{
+					"name": "api/info/count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"count"
+							]
 						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3001/api/friends/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"friends",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "By Email",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "peter@admin.dk",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3001/api/friends/pp@b.dk",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"friends",
-						"pp@b.dk"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Me",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "peter@admin.dk",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3001/api/friends/me",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"friends",
-						"me"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "New friend",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
 					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Simsala\",\r\n    \"lastName\": \"Bim\",\r\n    \"email\": \"Simsala@bim.dk\",\r\n    \"password\": \"riddlesinthedeep\"\r\n}"
+					"response": []
 				},
+				{
+					"name": "api/info/user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWxsYWRzQGdtYWlsLmNvbSIsInJvbGVzIjoiYWRtaW4iLCJleHAiOjE2MTkxMDk2OTgsImlhdCI6MTYxOTEwNzg5OCwiaXNzdWVyIjoiQ0EzLWdydXBwZS04IiwidXNlcm5hbWUiOiJ2aWxsYWRzQGdtYWlsLmNvbSJ9.rdhSPJvgxVqN1llG7Zz-Hpy4Rb3hrk98vobLIqApUIM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/info/admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWxsYWRzQGdtYWlsLmNvbSIsInJvbGVzIjoiYWRtaW4iLCJleHAiOjE2MTkxMDk2OTgsImlhdCI6MTYxOTEwNzg5OCwiaXNzdWVyIjoiQ0EzLWdydXBwZS04IiwidXNlcm5hbWUiOiJ2aWxsYWRzQGdtYWlsLmNvbSJ9.rdhSPJvgxVqN1llG7Zz-Hpy4Rb3hrk98vobLIqApUIM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/info/person/email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzb21lb25lQGhvdG1haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiZXhwIjoxNjE5MTA5NTI0LCJpYXQiOjE2MTkxMDc3MjQsImlzc3VlciI6IkNBMy1ncnVwcGUtOCIsInVzZXJuYW1lIjoic29tZW9uZUBob3RtYWlsLmNvbSJ9.dEczln2soW13fpKJh7Kkaj7Ur6QeeiDwQS9L6irRmpg"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/person/villads@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"person",
+								"villads@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/info/person/all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzb21lb25lQGhvdG1haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiZXhwIjoxNjE5MTA5NTI0LCJpYXQiOjE2MTkxMDc3MjQsImlzc3VlciI6IkNBMy1ncnVwcGUtOCIsInVzZXJuYW1lIjoic29tZW9uZUBob3RtYWlsLmNvbSJ9.dEczln2soW13fpKJh7Kkaj7Ur6QeeiDwQS9L6irRmpg"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/person/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"person",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/info/removeHobby/{email}/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWxsYWRzQGdtYWlsLmNvbSIsInJvbGVzIjoiYWRtaW4iLCJleHAiOjE2MDk5NDMwODksImlhdCI6MTYwOTk0MTI4OSwiaXNzdWVyIjoiQ0EzLWdydXBwZS04IiwidXNlcm5hbWUiOiJ2aWxsYWRzQGdtYWlsLmNvbSJ9.ywDi2MiOeB7ePyQ7P4gulG7pbl6G7oO0KTa8BwLluss",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/removeHobby/kinkymarkmus@hotmail.com/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"removeHobby",
+								"kinkymarkmus@hotmail.com",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/info/ (Add user)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"johnjohn@hotmail.com\",\r\n    \"password\":\"hunter2\",\r\n    \"phone\":\"46791364\",\r\n    \"firstName\":\"John\",\r\n    \"lastName\":\"Langhals\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/info/person (Update)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"johnjohn@hotmail.com\",\r\n    \"phone\":\"11111111\",\r\n    \"firstName\":\"John\",\r\n    \"lastName\":\"Johnnesen\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/person/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"person",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/info/delete/{email}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/info/delete/johnjohn@hotmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"info",
+								"delete",
+								"johnjohn@hotmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "api/login/user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"villads@gmail.com\",\r\n    \"password\":\"secretpassword\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webscraper",
+			"item": [
+				{
+					"name": "api/scrape/sequential",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/scrape/sequential",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"scrape",
+								"sequential"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/scrape/parallel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/scrape/parallel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"scrape",
+								"parallel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "api/comments/count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/comments/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"comments",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comments/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/comments/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"comments",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comments/<id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/comments/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"comments",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comments/delete/<id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/comments/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"comments",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comments/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"userComment\": \"Comment fra postman igent fra postman igen goddaw igen\",\r\n    \"topicID\": \"3\",\r\n    \"userName\": \"villads@gmail.com\",\r\n    \"imageFile\" : \"Hellepåski.jpg\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/4SEM_Security/api/comments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"4SEM_Security",
+								"api",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/jokes/",
+			"request": {
+				"method": "GET",
+				"header": [],
 				"url": {
-					"raw": "http://localhost:3001/api/friends/",
+					"raw": "http://localhost:8080/4SEM_Security/api/jokes/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3001",
+					"port": "8080",
 					"path": [
+						"4SEM_Security",
 						"api",
-						"friends",
+						"jokes",
 						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Edit <user>",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "peter@admin.dk",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Peter\",\r\n    \"lastName\": \"AdminMan\",\r\n    \"email\": \"peter@admin.dk\",\r\n    \"password\": \"secret\"\r\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3001/api/friends/peter@admin.dk",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"friends",
-						"peter@admin.dk"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Edit me",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "secret",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "peter@admin.dk",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Peter\",\r\n    \"lastName\": \"Adminn\",\r\n    \"email\": \"peter@admin.dk\",\r\n    \"password\": \"secret\"\r\n}"
-				},
-				"url": {
-					"raw": "http://localhost:3001/api/friends/edit",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"friends",
-						"edit"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "peter@admin.dk",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:3001/api/friends/Simsala@bim.dk",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"friends",
-						"Simsala@bim.dk"
 					]
 				}
 			},
